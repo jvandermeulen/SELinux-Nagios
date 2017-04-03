@@ -1,0 +1,11 @@
+
+module nagios_logrotate 1.0;
+
+require {
+	type logrotate_t;
+	type httpd_sys_rw_content_t;
+	class file getattr;
+}
+
+#============= logrotate_t ==============
+allow logrotate_t httpd_sys_rw_content_t:file getattr;

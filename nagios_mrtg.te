@@ -1,0 +1,10 @@
+
+module nagios_mrtg 1.0;
+
+require {
+	type mrtg_t;
+	class capability dac_override;
+}
+
+#============= mrtg_t ==============
+allow mrtg_t self:capability dac_override;

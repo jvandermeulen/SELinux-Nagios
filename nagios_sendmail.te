@@ -1,0 +1,11 @@
+
+module mypol 1.0;
+
+require {
+	type system_mail_t;
+	type httpd_sys_rw_content_t;
+	class file { write getattr };
+}
+
+#============= system_mail_t ==============
+allow system_mail_t httpd_sys_rw_content_t:file { write getattr };

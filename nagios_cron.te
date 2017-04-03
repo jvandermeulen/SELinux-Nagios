@@ -1,0 +1,20 @@
+
+module nagios_cron 1.0;
+
+require {
+        type httpd_t;
+        type crond_t;
+        type user_cron_spool_t;
+        type unlabeled_t;
+        class file read;
+        class dir write;
+        class process getattr;
+}
+
+#============= httpd_t ==============
+
+#!!!! This avc is allowed in the current policy
+allow httpd_t crond_t:process getattr;
+allow httpd_t unlabeled_t:file read;
+allow httpd_t user_cron_spool_t:dir write;
+

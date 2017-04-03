@@ -1,0 +1,11 @@
+
+module nagios_dashlet_upload 1.0;
+
+require {
+	type httpd_sys_content_t;
+	type load_policy_t;
+	class file { read append };
+}
+
+#============= load_policy_t ==============
+allow load_policy_t httpd_sys_content_t:file { read append };

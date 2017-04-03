@@ -1,0 +1,26 @@
+
+module nagvis 1.0;
+
+require {
+        type var_log_t;
+        type httpd_t;
+        type var_t;
+        type usr_t;
+        type var_lib_t;
+        type user_home_t;
+        class sock_file { write getattr };
+        class dir setattr;
+        class file { read setattr create ioctl write getattr unlink open };
+}
+
+#============= httpd_t ==============
+
+#!!!! This avc is allowed in the current policy
+allow httpd_t usr_t:file { read setattr create ioctl write getattr unlink open };
+allow httpd_t usr_t:sock_file { write getattr };
+allow httpd_t var_lib_t:file { write unlink setattr };
+allow httpd_t var_log_t:file { read setattr create ioctl write getattr unlink open };
+allow httpd_t var_t:dir setattr;
+allow httpd_t var_t:file { read setattr create ioctl write getattr unlink open };
+allow httpd_t user_home_t:file { read setattr create ioctl write getattr unlink open };
+

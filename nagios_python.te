@@ -1,0 +1,21 @@
+
+module nagios_python 1.0;
+
+require {
+	type httpd_t;
+	type ajaxterm_t;
+	type unreserved_port_t;
+	type passwd_file_t;
+	class tcp_socket name_connect;
+	class file { open read append };
+        type usr_t;
+}
+
+#============= ajaxterm_t ==============
+allow ajaxterm_t passwd_file_t:file { open read append };
+
+#============= httpd_t ==============
+
+allow httpd_t unreserved_port_t:tcp_socket name_connect;
+allow httpd_t usr_t:file { open read append };
+

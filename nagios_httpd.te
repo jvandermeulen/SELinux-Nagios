@@ -1,0 +1,27 @@
+
+module nagios_httpd 1.0;
+
+require {
+	type httpd_t;
+	type usr_t;
+        type initrc_t;
+        type mrtg_var_lib_t;
+        type httpd_sys_rw_content_t;
+        type httpd_sys_content_t;
+        type load_policy_t;
+        class unix_stream_socket connectto;
+        class dir { read write add_name remove_name };
+	class file { setattr execute create read write unlink append open };
+        class fifo_file { execute read write getattr open };
+}
+
+#============= httpd_t ==============
+allow httpd_t usr_t:file { execute read create write unlink append };
+allow httpd_t initrc_t:unix_stream_socket connectto;
+allow httpd_t mrtg_var_lib_t:dir read;
+allow httpd_t usr_t:fifo_file { execute read write getattr open };
+allow httpd_t httpd_sys_rw_content_t:file { setattr execute create read write unlink append };
+allow httpd_t httpd_sys_content_t:dir { remove_name add_name read write };
+allow httpd_t httpd_sys_content_t:file { setattr execute create read write unlink append };
+allow load_policy_t httpd_sys_content_t:file { setattr execute create read write unlink append };
+

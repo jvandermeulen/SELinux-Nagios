@@ -1,0 +1,11 @@
+
+module nagios_postdrop 1.0;
+
+require {
+	type postfix_postdrop_t;
+	type httpd_sys_rw_content_t;
+	class file { write getattr };
+}
+
+#============= postfix_postdrop_t ==============
+allow postfix_postdrop_t httpd_sys_rw_content_t:file { write getattr };
