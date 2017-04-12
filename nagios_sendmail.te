@@ -1,5 +1,5 @@
 
-module mypol 1.0;
+module nagios_sendmail 1.0;
 
 require {
 	type system_mail_t;
