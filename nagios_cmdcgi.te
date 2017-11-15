@@ -1,0 +1,12 @@
+module nagios_cmdcgi 1.0;
+
+require {
+        type httpd_sys_script_t;
+        type usr_t;
+        class fifo_file { getattr open write };
+}
+
+#============= httpd_sys_script_t ==============
+
+#!!!! WARNING: 'usr_t' is a base type.
+allow httpd_sys_script_t usr_t:fifo_file { getattr open write };
