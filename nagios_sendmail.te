@@ -1,11 +1,12 @@
-
-module nagios_sendmail 1.0;
+module nagios_sendmail 1.1;
 
 require {
-	type system_mail_t;
-	type httpd_sys_rw_content_t;
-	class file { write getattr };
+        type system_mail_t;
+        type usr_t;
+        type httpd_sys_rw_content_t;
+        class file { append write getattr };
 }
 
 #============= system_mail_t ==============
 allow system_mail_t httpd_sys_rw_content_t:file { write getattr };
+dontaudit system_mail_t usr_t:file { append write };
