@@ -2,6 +2,13 @@
 
 <!-- This is commented out. -->
 
+<details>
+ <summary>Summary</summary>
+
+```js
+const x = 1
+```
+</details>
 example
 ```
 NAME=nagios_logrotate
