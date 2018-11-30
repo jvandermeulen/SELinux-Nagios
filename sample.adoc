@@ -3,6 +3,9 @@ Doc Writer <doc@example.com>
 
 An introduction to http://asciidoc.org[AsciiDoc].
 
+[TIP]
+Install NCPA
+
 == First Section
 
 * item 1
