@@ -5,7 +5,7 @@
 <details>
  <summary>Summary</summary>
 
-```js
+```
 solution: mysolution
 ```
 </details>
