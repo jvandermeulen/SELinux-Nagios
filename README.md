@@ -6,9 +6,10 @@
  <summary>Summary</summary>
 
 ```js
-const x = 1
+solution: mysolution
 ```
 </details>
+
 example
 ```
 NAME=nagios_logrotate
