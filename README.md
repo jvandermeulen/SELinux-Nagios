@@ -1,5 +1,6 @@
 # SELinux-NagiosXI
 
+<!-- This is commented out. -->
 
 example
 ```
